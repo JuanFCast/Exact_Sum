@@ -1,3 +1,4 @@
+package MainBinarySearch;
 //Copiar y pegar el codigo en Judge para que lo acepte el Judge :3
 
 

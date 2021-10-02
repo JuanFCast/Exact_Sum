@@ -1,9 +1,11 @@
 package MainSequentialSearch;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 //import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 //import java.io.OutputStreamWriter;
 import java.util.Arrays;
 
@@ -13,8 +15,8 @@ public class MainSequentialSearch_Consola {
 	public static int money;
 	
 	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));	
-		//BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		BufferedReader br = new BufferedReader(new FileReader("src/data/InPut_30_Casos.txt"));	
+		BufferedWriter bw = new BufferedWriter(new FileWriter("src/data/OutPut_Sequential.txt"));
 		
 		System.out.println("Bienvenid@ a Exact Sum con Busqueda Secuencial");
 		
@@ -45,7 +47,7 @@ public class MainSequentialSearch_Consola {
 
 				int numb=money-booksPrice[i];
 				int pos= secuencialSearch(numb, i);
-				System.out.println(pos);
+				//System.out.println(pos);
 				int temp1=0;
 				int temp2=0;
 				if(pos>=0) {
@@ -71,14 +73,15 @@ public class MainSequentialSearch_Consola {
 				}
 
 			}
-			//bw.write("Peter should buy books whose prices are "+book1+" and "+book2+".\n\n");
-			System.out.println("Peter should buy books whose prices are "+book1+" and "+book2+".\n\n");
+			bw.write("Peter should buy books whose prices are "+book1+" and "+book2+".\n\n");
+			//System.out.println("Peter should buy books whose prices are "+book1+" and "+book2+".\n\n");
 			line=br.readLine();
-			//line=br.readLine();
+			line=br.readLine();
 		}
 		
 		br.close();
-		//bw.close();
+		bw.close();
+		System.out.println("OutPut_Sequential.txt actualizado");
 		
 	}
 	
