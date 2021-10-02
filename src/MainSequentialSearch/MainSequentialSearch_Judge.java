@@ -1,3 +1,6 @@
+//Copiar y pegar el codigo en Judge para que lo acepte el Judge :3
+
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -14,7 +17,7 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));	
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		//System.out.println("Bienvenid@ a Exact Sum");
+		//System.out.println("Bienvenid@ a Exact Sum con Busqueda Secuencial");
 		
 		
 		String line= br.readLine();
