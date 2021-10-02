@@ -42,7 +42,7 @@ public class Main {
 			for(int i=0; i<n;i++) {
 
 				int numb=money-booksPrice[i];
-				int pos= secuencialSearch(numb, i);
+				int pos= binarySearch(numb, i);
 				int temp1=0;
 				int temp2=0;
 				if(pos>=0) {
@@ -79,17 +79,27 @@ public class Main {
 		
 	}
 
-	public static int secuencialSearch(int num, int a){
-
+	public static int binarySearch(int num, int a){
 		int pos = -1;
-		for (a=0; a < booksPrice.length; a++) {
-			if (booksPrice[a]==num){
-                pos=a;
-                
-            }
+		int i=0;
+		int j=booksPrice.length-1;
+		
+		while(i<=j && pos<0){
+	
+			int m= (i+j)/2;
+			
+			if(m!=a && booksPrice[m]==num){
+				pos =m;
+			}else if(booksPrice[m]>num){
+				j=m-1;
+			}else{
+				i=m+1;
+			}
 		}
 		return pos;
-
 	}
 	
+	
+	
+
 }

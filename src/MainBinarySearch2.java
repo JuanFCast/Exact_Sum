@@ -1,20 +1,20 @@
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
+//import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+//import java.io.OutputStreamWriter;
 import java.util.Arrays;
 
-public class Main {
+public class MainBinarySearch2 {
 	public static int n;
 	public static int[] booksPrice;
 	public static int money;
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));	
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		//BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		//System.out.println("Bienvenid@ a Exact Sum");
+		System.out.println("Bienvenid@ a Exact Sum");
 		
 		
 		String line= br.readLine();
@@ -42,7 +42,8 @@ public class Main {
 			for(int i=0; i<n;i++) {
 
 				int numb=money-booksPrice[i];
-				int pos= secuencialSearch(numb, i);
+				int pos= binarySearch(numb, i);
+				System.out.println(pos);
 				int temp1=0;
 				int temp2=0;
 				if(pos>=0) {
@@ -68,28 +69,38 @@ public class Main {
 				}
 
 			}
-			bw.write("Peter should buy books whose prices are "+book1+" and "+book2+".\n\n");
-			//System.out.println("Peter should buy books whose prices are "+book1+" and "+book2+".\n\n");
+			//bw.write("Peter should buy books whose prices are "+book1+" and "+book2+".\n\n");
+			System.out.println("Peter should buy books whose prices are "+book1+" and "+book2+".\n\n");
 			line=br.readLine();
 			line=br.readLine();
 		}
 		
 		br.close();
-		bw.close();
+		//bw.close();
 		
 	}
 
-	public static int secuencialSearch(int num, int a){
-
+	public static int binarySearch(int num, int a){
 		int pos = -1;
-		for (a=0; a < booksPrice.length; a++) {
-			if (booksPrice[a]==num){
-                pos=a;
-                
-            }
+		int i=0;
+		int j=booksPrice.length-1;
+		
+		while(i<=j && pos<0){
+	
+			int m= (i+j)/2;
+			
+			if(m!=a && booksPrice[m]==num){
+				pos =m;
+			}else if(booksPrice[m]>num){
+				j=m-1;
+			}else{
+				i=m+1;
+			}
 		}
 		return pos;
-
 	}
 	
+	
+	
+
 }
