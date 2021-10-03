@@ -15,15 +15,17 @@ public class MainSequentialSearch_Consola {
 	public static int money;
 	
 	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new FileReader("src/data/InPut_30_Casos.txt"));	
+		BufferedReader br = new BufferedReader(new FileReader("src/data/InPut_32_Casos.txt"));	
 		BufferedWriter bw = new BufferedWriter(new FileWriter("src/data/OutPut_Sequential.txt"));
 		
 		System.out.println("Bienvenid@ a Exact Sum con Busqueda Secuencial");
 		
 		
 		String line= br.readLine();
-		
+		int c = 0;
 		while(line!=null) {
+			c++;
+			
 			n = Integer.parseInt(line);
 			booksPrice = new int[n];
 			
@@ -73,7 +75,7 @@ public class MainSequentialSearch_Consola {
 				}
 
 			}
-			bw.write("Peter should buy books whose prices are "+book1+" and "+book2+".\n\n");
+			bw.write(c + ". Peter should buy books whose prices are "+book1+" and "+book2+".\n\n");
 			//System.out.println("Peter should buy books whose prices are "+book1+" and "+book2+".\n\n");
 			line=br.readLine();
 			line=br.readLine();
@@ -81,71 +83,21 @@ public class MainSequentialSearch_Consola {
 		
 		br.close();
 		bw.close();
-		System.out.println("OutPut_Sequential.txt actualizado");
+		System.out.println("OutPut_Sequential.txt actualizado con " + c + " casos");
 		
 	}
 	
 	public static int secuencialSearch(int num, int a){
 
 		int pos = -1;
-		for (a=0; a < booksPrice.length; a++) {
-			if (booksPrice[a]==num){
-                pos=a;
+		for (int i=0; i < booksPrice.length; i++) {
+			if (i!=a && booksPrice[i]==num){
+                pos=i;
                 
             }
 		}
 		return pos;
 
 	}
-	
-
-	
-	
-	/*
-	public static int secuencialSearch(int num, int a){
-		
-		int pos = -1;
-		int i=a;
-		int j=booksPrice.length-1;
-		
-	
-		while(i<=j && pos<0){
-			
-			if (booksPrice[i] + num == money) {
-				pos=i;
-				//System.out.println(i + " " + num);
-			}else {
-				i++;
-			}
-		}
-		
-		
-		return pos;
-
-	}
-	
-	
-	
-	
-	public static int binarySearch(int num, int a){
-		int pos = -1;
-		int i=0;
-		int j=booksPrice.length-1;
-		
-		while(i<=j && pos<0){
-	
-			int m= (i+j)/2;
-			
-			if(m!=a && booksPrice[m]==num){
-				pos = m;
-			}else if(booksPrice[m]>num){
-				j=m-1;
-			}else{
-				i=m+1;
-			}
-		}
-		return pos;
-	}
-	*/
 	
 }

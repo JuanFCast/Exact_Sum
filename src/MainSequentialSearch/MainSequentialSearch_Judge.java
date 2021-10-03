@@ -47,6 +47,7 @@ public class Main {
 
 				int numb=money-booksPrice[i];
 				int pos= secuencialSearch(numb, i);
+				//System.out.println(pos);
 				int temp1=0;
 				int temp2=0;
 				if(pos>=0) {
@@ -86,9 +87,9 @@ public class Main {
 	public static int secuencialSearch(int num, int a){
 
 		int pos = -1;
-		for (a=0; a < booksPrice.length; a++) {
-			if (booksPrice[a]==num){
-                pos=a;
+		for (int i=0; i < booksPrice.length; i++) {
+			if (i!=a && booksPrice[i]==num){
+                pos=i;
                 
             }
 		}

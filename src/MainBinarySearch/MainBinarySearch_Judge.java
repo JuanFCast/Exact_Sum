@@ -47,6 +47,7 @@ public class Main {
 
 				int numb=money-booksPrice[i];
 				int pos= binarySearch(numb, i);
+				//System.out.println(pos);
 				int temp1=0;
 				int temp2=0;
 				if(pos>=0) {

@@ -13,15 +13,17 @@ public class MainBinarySearch_Consola {
 	public static int money;
 	
 	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new FileReader("src/data/InPut_30_Casos.txt"));	
+		BufferedReader br = new BufferedReader(new FileReader("src/data/InPut_32_Casos.txt"));	
 		BufferedWriter bw = new BufferedWriter(new FileWriter("src/data/OutPut_Binary.txt"));
 		
 		System.out.println("Bienvenid@ a Exact Sum con Busqueda Binaria");
 		
 		
 		String line= br.readLine();
-		
+		int c = 0;
 		while(line!=null) {
+			c++;
+			
 			n = Integer.parseInt(line);
 			booksPrice = new int[n];
 			
@@ -71,7 +73,7 @@ public class MainBinarySearch_Consola {
 				}
 
 			}
-			bw.write("Peter should buy books whose prices are "+book1+" and "+book2+".\n\n");
+			bw.write(c + ". Peter should buy books whose prices are "+book1+" and "+book2+".\n\n");
 			//System.out.println("Peter should buy books whose prices are "+book1+" and "+book2+".\n\n");
 			line=br.readLine();
 			line=br.readLine();
@@ -79,7 +81,7 @@ public class MainBinarySearch_Consola {
 		
 		br.close();
 		bw.close();
-		System.out.println("OutPut_Binary.txt actualizado");
+		System.out.println("OutPut_Binary.txt actualizado con " + c + " casos");
 		
 	}
 
