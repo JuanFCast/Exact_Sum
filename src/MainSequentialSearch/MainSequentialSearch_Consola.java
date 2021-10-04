@@ -15,8 +15,8 @@ public class MainSequentialSearch_Consola {
 	public static int money;
 	
 	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new FileReader("src/data/InPut_32_Casos.txt"));	
-		BufferedWriter bw = new BufferedWriter(new FileWriter("src/data/OutPut_Sequential.txt"));
+		BufferedReader br = new BufferedReader(new FileReader("data/InPut_32_Casos.txt"));	
+		BufferedWriter bw = new BufferedWriter(new FileWriter("data/OutPut_Sequential.txt"));
 		
 		System.out.println("Bienvenid@ a Exact Sum con Busqueda Secuencial");
 		
